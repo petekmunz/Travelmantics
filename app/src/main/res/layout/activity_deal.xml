@@ -1,0 +1,73 @@
+<?xml version="1.0" encoding="utf-8"?>
+<layout
+    xmlns:android="http://schemas.android.com/apk/res/android"
+    xmlns:app="http://schemas.android.com/apk/res-auto"
+    xmlns:tools="http://schemas.android.com/tools">
+
+    <androidx.constraintlayout.widget.ConstraintLayout
+        android:layout_width="match_parent"
+        android:layout_height="match_parent"
+        tools:context=".views.DealActivity">
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etxtTitle"
+            android:layout_width="match_parent"
+            android:layout_height="wrap_content"
+            android:layout_marginStart="@dimen/text_margin_standard"
+            android:layout_marginTop="@dimen/text_margin_large"
+            android:layout_marginEnd="@dimen/text_margin_standard"
+            android:hint="@string/title_hint"
+            android:inputType="textPersonName"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toTopOf="parent" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etxtPrice"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/price_hint"
+            android:inputType="numberDecimal"
+            app:layout_constraintEnd_toEndOf="@+id/etxtTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/etxtTitle"
+            app:layout_constraintTop_toBottomOf="@+id/etxtTitle" />
+
+        <com.google.android.material.textfield.TextInputEditText
+            android:id="@+id/etxtDescription"
+            android:layout_width="0dp"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="20dp"
+            android:hint="@string/description_hint"
+            app:layout_constraintEnd_toEndOf="@+id/etxtTitle"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="@+id/etxtTitle"
+            app:layout_constraintTop_toBottomOf="@+id/etxtPrice" />
+
+        <com.google.android.material.button.MaterialButton
+            android:id="@+id/btnImage"
+            android:layout_width="wrap_content"
+            android:layout_height="wrap_content"
+            android:layout_marginTop="50dp"
+            android:text="@string/upload_image"
+            app:layout_constraintEnd_toEndOf="@+id/etxtTitle"
+            app:layout_constraintStart_toStartOf="@+id/etxtTitle"
+            app:layout_constraintTop_toBottomOf="@+id/etxtDescription" />
+
+        <ImageView
+            android:id="@+id/image"
+            android:layout_width="0dp"
+            android:layout_height="200dp"
+            android:layout_marginStart="8dp"
+            android:layout_marginTop="20dp"
+            android:layout_marginEnd="8dp"
+            app:layout_constraintEnd_toEndOf="parent"
+            app:layout_constraintHorizontal_bias="0.0"
+            app:layout_constraintStart_toStartOf="parent"
+            app:layout_constraintTop_toBottomOf="@+id/btnImage"
+            app:srcCompat="@android:drawable/screen_background_light_transparent" />
+
+    </androidx.constraintlayout.widget.ConstraintLayout>
+
+</layout>
