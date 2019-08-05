@@ -1,4 +1,4 @@
-package com.petermunyao.travelmantics.dialofFragment;
+package com.petermunyao.travelmantics.dialogFragment;
 
 import android.app.Dialog;
 import android.content.Context;
