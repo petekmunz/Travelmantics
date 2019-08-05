@@ -1,6 +1,5 @@
 <?xml version="1.0" encoding="utf-8"?>
-<layout
-    xmlns:android="http://schemas.android.com/apk/res/android"
+<layout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools">
 
@@ -9,65 +8,81 @@
         android:layout_height="match_parent"
         tools:context=".views.DealActivity">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etxtTitle"
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etxtTitleLayout"
             android:layout_width="match_parent"
             android:layout_height="wrap_content"
-            android:layout_marginStart="@dimen/text_margin_standard"
-            android:layout_marginTop="@dimen/text_margin_large"
-            android:layout_marginEnd="@dimen/text_margin_standard"
-            android:hint="@string/title_hint"
-            android:inputType="textPersonName"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toTopOf="parent" />
+            app:layout_constraintTop_toTopOf="parent"
+            android:layout_marginStart="@dimen/text_margin_standard"
+            android:layout_marginTop="@dimen/text_margin_large"
+            android:layout_marginEnd="@dimen/text_margin_standard">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etxtPrice"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtTitle"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:hint="@string/title_hint"
+                android:inputType="textPersonName" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etxtPriceLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/price_hint"
-            android:inputType="numberDecimal"
-            app:layout_constraintEnd_toEndOf="@+id/etxtTitle"
+            app:layout_constraintEnd_toEndOf="@+id/etxtTitleLayout"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/etxtTitle"
-            app:layout_constraintTop_toBottomOf="@+id/etxtTitle" />
+            app:layout_constraintStart_toStartOf="@+id/etxtTitleLayout"
+            app:layout_constraintTop_toBottomOf="@+id/etxtTitleLayout">
 
-        <com.google.android.material.textfield.TextInputEditText
-            android:id="@+id/etxtDescription"
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtPrice"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/price_hint"
+                android:inputType="numberDecimal" />
+        </com.google.android.material.textfield.TextInputLayout>
+
+        <com.google.android.material.textfield.TextInputLayout
+            android:id="@+id/etxtDescriptionLayout"
             android:layout_width="0dp"
             android:layout_height="wrap_content"
-            android:layout_marginTop="20dp"
-            android:hint="@string/description_hint"
-            app:layout_constraintEnd_toEndOf="@+id/etxtTitle"
+            app:layout_constraintEnd_toEndOf="@+id/etxtTitleLayout"
             app:layout_constraintHorizontal_bias="0.0"
-            app:layout_constraintStart_toStartOf="@+id/etxtTitle"
-            app:layout_constraintTop_toBottomOf="@+id/etxtPrice" />
+            app:layout_constraintStart_toStartOf="@+id/etxtTitleLayout"
+            app:layout_constraintTop_toBottomOf="@+id/etxtPriceLayout">
+
+            <com.google.android.material.textfield.TextInputEditText
+                android:id="@+id/etxtDescription"
+                android:layout_width="match_parent"
+                android:layout_height="wrap_content"
+                android:layout_marginTop="20dp"
+                android:hint="@string/description_hint" />
+        </com.google.android.material.textfield.TextInputLayout>
 
         <com.google.android.material.button.MaterialButton
             android:id="@+id/btnImage"
             android:layout_width="wrap_content"
             android:layout_height="wrap_content"
-            android:layout_marginTop="50dp"
+            android:layout_marginTop="@dimen/text_margin_large"
             android:text="@string/upload_image"
-            app:layout_constraintEnd_toEndOf="@+id/etxtTitle"
-            app:layout_constraintStart_toStartOf="@+id/etxtTitle"
-            app:layout_constraintTop_toBottomOf="@+id/etxtDescription" />
+            app:layout_constraintEnd_toEndOf="@+id/etxtTitleLayout"
+            app:layout_constraintStart_toStartOf="@+id/etxtTitleLayout"
+            app:layout_constraintTop_toBottomOf="@+id/etxtDescriptionLayout" />
 
         <ImageView
             android:id="@+id/image"
             android:layout_width="0dp"
             android:layout_height="200dp"
-            android:layout_marginStart="8dp"
-            android:layout_marginTop="20dp"
-            android:layout_marginEnd="8dp"
+            android:layout_marginBottom="8dp"
+            android:padding="10dp"
+            app:layout_constraintBottom_toBottomOf="parent"
             app:layout_constraintEnd_toEndOf="parent"
             app:layout_constraintHorizontal_bias="0.0"
             app:layout_constraintStart_toStartOf="parent"
-            app:layout_constraintTop_toBottomOf="@+id/btnImage"
-            app:srcCompat="@android:drawable/screen_background_light_transparent" />
-
+            app:srcCompat="@android:drawable/screen_background_light_transparent"
+            android:contentDescription="@string/image_description"/>
     </androidx.constraintlayout.widget.ConstraintLayout>
-
 </layout>
