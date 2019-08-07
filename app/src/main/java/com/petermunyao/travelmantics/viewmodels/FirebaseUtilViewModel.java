@@ -1,7 +1,6 @@
 package com.petermunyao.travelmantics.viewmodels;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -32,10 +31,8 @@ public class FirebaseUtilViewModel extends AndroidViewModel {
                         DocumentSnapshot document = task.getResult();
                         if (document.exists()) {
                             mAdminStatus.setValue(true);
-                            Log.d("IS ADMIN", "IS TRUE");
                         } else {
                             mAdminStatus.setValue(false);
-                            Log.d("IS ADMIN", "IS FALSE");
                         }
                     }
                 });

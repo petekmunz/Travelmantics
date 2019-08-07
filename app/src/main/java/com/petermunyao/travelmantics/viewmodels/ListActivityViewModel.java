@@ -1,7 +1,6 @@
 package com.petermunyao.travelmantics.viewmodels;
 
 import android.app.Application;
-import android.util.Log;
 
 import androidx.annotation.NonNull;
 import androidx.lifecycle.AndroidViewModel;
@@ -34,7 +33,6 @@ public class ListActivityViewModel extends AndroidViewModel {
                 for (QueryDocumentSnapshot doc : queryDocumentSnapshots) {
                     TravelDeal travelDeal = doc.toObject(TravelDeal.class);
                     list.add(travelDeal);
-                    Log.d("IT WORKS", "SEE");
                 }
                 mLiveData.setValue(list);
             }
