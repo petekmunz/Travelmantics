@@ -1,4 +1,6 @@
-# Andela Learning Community 4.0 phase 1 Android Challenge 2
+# Travelmantics
+
+## Andela Learning Community 4.0 phase 1 Android Challenge 2
 
 \* An android application that shows users Travel deals in a RecyclerView. Users of the app are divided into two, an Admin who has write permissions to the online database containing the Travel deals and a normal user who only has read access to the database.
 

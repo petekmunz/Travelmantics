@@ -9,7 +9,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import android.content.Intent;
 import android.content.SharedPreferences;
 import android.os.Bundle;
-import android.util.Log;
 import android.view.Menu;
 import android.view.MenuInflater;
 import android.view.MenuItem;
@@ -48,7 +47,6 @@ public class ListActivity extends AppCompatActivity implements ListInterface {
         SharedPreferences.Editor editor = preferences.edit();
         editor.putBoolean("Valid", false);
         editor.apply();
-
 
         mUtilViewModel.checkAdminStatus(FirebaseAuth.getInstance().getUid()).observe(ListActivity.this, aBoolean -> {
             if (aBoolean == true) {
@@ -109,7 +107,6 @@ public class ListActivity extends AppCompatActivity implements ListInterface {
         AuthUI.getInstance()
                 .signOut(this)
                 .addOnCompleteListener(task -> {
-                    //mAuth.removeAuthStateListener(mListener);
                     Intent logoutIntent = new Intent(ListActivity.this, SignInActivity.class);
                     logoutIntent.setFlags(Intent.FLAG_ACTIVITY_NEW_TASK | Intent.FLAG_ACTIVITY_CLEAR_TOP);
                     startActivity(logoutIntent);
