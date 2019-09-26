@@ -2,7 +2,7 @@ package com.petermunyao.travelmantics.views;
 
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 import androidx.recyclerview.widget.LinearLayoutManager;
 import androidx.recyclerview.widget.RecyclerView;
 
@@ -27,17 +27,15 @@ import com.petermunyao.travelmantics.viewmodels.ListActivityViewModel;
 public class ListActivity extends AppCompatActivity implements ListInterface {
 
     private ActivityListBinding mBinding;
-    private ListActivityViewModel mViewModel;
     private DealAdapter mAdapter;
-    private FirebaseUtilViewModel mUtilViewModel;
     private boolean isAdmin = false;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_list);
-        mViewModel = ViewModelProviders.of(this).get(ListActivityViewModel.class);
-        mUtilViewModel = ViewModelProviders.of(this).get(FirebaseUtilViewModel.class);
+        ListActivityViewModel mViewModel = new ViewModelProvider(this).get(ListActivityViewModel.class);
+        FirebaseUtilViewModel mUtilViewModel = new ViewModelProvider(this).get(FirebaseUtilViewModel.class);
         mBinding.setLifecycleOwner(this);
         mBinding.recyclerView.setLayoutManager(new LinearLayoutManager(ListActivity.this, RecyclerView.VERTICAL, false));
         mBinding.recyclerView.setHasFixedSize(true);
@@ -49,7 +47,7 @@ public class ListActivity extends AppCompatActivity implements ListInterface {
         editor.apply();
 
         mUtilViewModel.checkAdminStatus(FirebaseAuth.getInstance().getUid()).observe(ListActivity.this, aBoolean -> {
-            if (aBoolean == true) {
+            if (aBoolean) {
                 isAdmin = true;
                 invalidateOptionsMenu();
                 SharedPreferences preferences1 = getApplicationContext().getSharedPreferences("IsAdmin Pref", MODE_PRIVATE);

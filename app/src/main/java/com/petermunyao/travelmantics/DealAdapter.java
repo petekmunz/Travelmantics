@@ -2,7 +2,6 @@ package com.petermunyao.travelmantics;
 
 import android.content.Context;
 import android.view.LayoutInflater;
-import android.view.View;
 import android.view.ViewGroup;
 
 import androidx.annotation.NonNull;
@@ -12,7 +11,6 @@ import androidx.recyclerview.widget.RecyclerView;
 import com.petermunyao.travelmantics.databinding.RowCardBinding;
 import com.petermunyao.travelmantics.model.TravelDeal;
 
-import java.util.ArrayList;
 import java.util.List;
 
 public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder> {
@@ -52,11 +50,11 @@ public class DealAdapter extends RecyclerView.Adapter<DealAdapter.DealViewHolder
     }
 
 
-    public class DealViewHolder extends RecyclerView.ViewHolder {
+    class DealViewHolder extends RecyclerView.ViewHolder {
 
         RowCardBinding binding;
 
-        public DealViewHolder(RowCardBinding binding) {
+        DealViewHolder(RowCardBinding binding) {
             super(binding.getRoot());
             this.binding = binding;
         }

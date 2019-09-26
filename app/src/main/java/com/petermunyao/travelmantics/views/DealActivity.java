@@ -3,7 +3,7 @@ package com.petermunyao.travelmantics.views;
 import androidx.annotation.Nullable;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.databinding.DataBindingUtil;
-import androidx.lifecycle.ViewModelProviders;
+import androidx.lifecycle.ViewModelProvider;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -42,8 +42,8 @@ public class DealActivity extends AppCompatActivity {
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         mBinding = DataBindingUtil.setContentView(this, R.layout.activity_deal);
-        mViewModel = ViewModelProviders.of(this).get(DealActivityViewModel.class);
-        mUtilViewModel = ViewModelProviders.of(this).get(FirebaseUtilViewModel.class);
+        mViewModel = new ViewModelProvider(this).get(DealActivityViewModel.class);
+        mUtilViewModel = new ViewModelProvider(this).get(FirebaseUtilViewModel.class);
         mBinding.setLifecycleOwner(this);
 
         mUtilViewModel.connectToStorage();
@@ -96,7 +96,7 @@ public class DealActivity extends AppCompatActivity {
                     .addOnSuccessListener(aVoid -> {
 
                     })
-                    .addOnFailureListener(e -> Toast.makeText(DealActivity.this, "Error deleting the deal", Toast.LENGTH_SHORT).show());
+                    .addOnFailureListener(e -> Toast.makeText(DealActivity.this, "Error deleting the deal image", Toast.LENGTH_SHORT).show());
             backToList();
         }
     }
